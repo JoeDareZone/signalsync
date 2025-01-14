@@ -12,7 +12,7 @@ class IntroPage3 extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 20.0),
+            padding: const EdgeInsets.only(bottom: 55.0),
             child: Text(
               'Connection Anywhere',
               style: GoogleFonts.poppins(
@@ -22,15 +22,19 @@ class IntroPage3 extends StatelessWidget {
               ),
             ),
           ),
-          Lottie.network(
-            'https://lottie.host/e7b1b266-1c9b-4796-8d5a-40678bcf86ab/fd4mv2CaXu.json',
-            width: 350,
-            height: 350,
+          Center(
+            child: Lottie.network(
+              'https://lottie.host/e7b1b266-1c9b-4796-8d5a-40678bcf86ab/fd4mv2CaXu.json',
+              width: 280,
+              height: 280,
+              fit: BoxFit.scaleDown,
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 20.0),
+            padding:
+                const EdgeInsets.only(top: 60, bottom: 20, left: 50, right: 50),
             child: Text(
-              'With direct satellite connection',
+              'Direct to Cell technology for global connectivity',
               style: GoogleFonts.roboto(
                 fontSize: 18,
                 color: Colors.white70,

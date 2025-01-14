@@ -12,9 +12,9 @@ class IntroPage2 extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 20.0),
+            padding: const EdgeInsets.only(bottom: 0),
             child: Text(
-              'Superpowered Security',
+              'Awesome AI Tools',
               style: GoogleFonts.poppins(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -22,15 +22,17 @@ class IntroPage2 extends StatelessWidget {
               ),
             ),
           ),
-          Lottie.network(
-            'https://lottie.host/aab5a171-df87-4abe-8d50-7c4d1766ae97/GF2XGSbnRm.json',
-            width: 350,
-            height: 350,
+          Center(
+            child: Lottie.network(
+              'https://lottie.host/aab5a171-df87-4abe-8d50-7c4d1766ae97/GF2XGSbnRm.json',
+              width: 380,
+              height: 380,
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
             child: Text(
-              'Deepfake detection, ',
+              'Deepfake detection, AI Assistant & Global Numbers',
               style: GoogleFonts.roboto(
                 fontSize: 18,
                 color: Colors.white70,
