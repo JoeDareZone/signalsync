@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:signalsync/intro_screens/intro_page_1.dart';
 import 'package:signalsync/intro_screens/intro_page_2.dart';
 import 'package:signalsync/intro_screens/intro_page_3.dart';
@@ -13,7 +14,7 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  PageController _controller = PageController();
+  final PageController _controller = PageController();
   bool isLastPage = false;
 
   @override
@@ -33,31 +34,60 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             IntroPage3(),
           ]),
       Container(
-          alignment: Alignment(0, 0.75),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GestureDetector(
-                onTap: () => _controller.jumpToPage(2),
-                child: Text('skip'),
+        alignment: Alignment(0, 0.75),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            GestureDetector(
+              onTap: () => _controller.jumpToPage(2),
+              child: Text(
+                'Skip',
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
               ),
-              SmoothPageIndicator(controller: _controller, count: 3),
-              isLastPage
-                  ? GestureDetector(
-                      onTap: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return HomePage();
-                      })),
-                      child: Text('done'),
-                    )
-                  : GestureDetector(
-                      onTap: () => _controller.nextPage(
-                          duration: Duration(milliseconds: 500),
-                          curve: Curves.easeIn),
-                      child: Text('next'),
-                    )
-            ],
-          ))
+            ),
+            SmoothPageIndicator(
+              controller: _controller,
+              count: 3,
+              effect: WormEffect(
+                dotColor: Colors.white70,
+                activeDotColor: Colors.white,
+              ),
+            ),
+            isLastPage
+                ? GestureDetector(
+                    onTap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return HomePage();
+                    })),
+                    child: Text(
+                      'Done',
+                      style: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                  )
+                : GestureDetector(
+                    onTap: () => _controller.nextPage(
+                        duration: Duration(milliseconds: 500),
+                        curve: Curves.easeIn),
+                    child: Text(
+                      'Next',
+                      style: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                  )
+          ],
+        ),
+      )
     ]));
   }
 }
