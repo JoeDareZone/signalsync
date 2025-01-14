@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:signalsync/intro_screens/intro_page_1.dart';
 import 'package:signalsync/intro_screens/intro_page_2.dart';
 import 'package:signalsync/intro_screens/intro_page_3.dart';
+import 'package:signalsync/pages/home_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -43,9 +44,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               SmoothPageIndicator(controller: _controller, count: 3),
               isLastPage
                   ? GestureDetector(
-                      onTap: () => _controller.nextPage(
-                          duration: Duration(milliseconds: 500),
-                          curve: Curves.easeIn),
+                      onTap: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return HomePage();
+                      })),
                       child: Text('done'),
                     )
                   : GestureDetector(
