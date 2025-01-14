@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:signalsync/components/my_button.dart';
 import 'package:signalsync/components/my_textfield.dart';
 import 'package:signalsync/components/square_tile.dart';
-import 'package:signalsync/pages/register_page.dart';
+import 'package:signalsync/pages/login_page.dart';
 import 'package:signalsync/services/auth_service.dart';
 import 'package:signalsync/theme/colors.dart';
 
-class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -29,14 +29,15 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-      if (e.code == 'user-not-found') {
+      print(e.code);
+      if (e.code == 'invalid-email') {
         wrongEmailMessage();
       } else if (e.code == 'wrong-password') {
         wrongPasswordMessage();
@@ -49,10 +50,10 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (context) {
         return const AlertDialog(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: AppColors.accentTeal,
           title: Center(
             child: Text(
-              'Incorrect Email',
+              'User not found...\n\nPlease check your email and password combination!',
               style: TextStyle(color: Colors.white),
             ),
           ),
@@ -94,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 50),
               Text(
-                'Welome back!',
+                'Sign Up Here',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -112,24 +113,11 @@ class _LoginPageState extends State<LoginPage> {
                 hintText: 'Password',
                 obscureText: true,
               ),
-              const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.white70),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 35),
               MyButton(
                 buttonType: 'primary',
-                buttonText: 'Sign in',
                 onTap: signUserIn,
+                buttonText: 'Sign Up',
               ),
               const SizedBox(height: 50),
               Padding(
@@ -172,21 +160,21 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
               const SizedBox(height: 50),
-               Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Not yet a member?',
+                    'Already a member?',
                     style: TextStyle(color: Colors.white),
                   ),
                   const SizedBox(width: 4),
                   GestureDetector(
                     onTap: () => Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return RegisterPage();
+                      return LoginPage();
                     })),
                     child: Text(
-                      'Sign Up',
+                      'Sign in',
                       style: TextStyle(
                         // fontSize: 14,
                         fontWeight: FontWeight.bold,
