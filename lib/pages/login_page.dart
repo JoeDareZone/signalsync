@@ -49,11 +49,11 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (context) {
         return const AlertDialog(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: AppColors.accentOrange,
           title: Center(
             child: Text(
               'Incorrect Email',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: AppColors.black),
             ),
           ),
         );
@@ -66,11 +66,11 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (context) {
         return const AlertDialog(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: AppColors.accentOrange,
           title: Center(
             child: Text(
               'Incorrect Password',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: AppColors.black),
             ),
           ),
         );
@@ -81,22 +81,24 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryGreen,
+      backgroundColor: AppColors.white,
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 50),
-              const Icon(
-                Icons.lock,
-                size: 100,
+              Image.asset(
+                'lib/assets/logo.png',
+                height: 160,
+                width: 160,
+                color: AppColors.accentTeal,
               ),
               const SizedBox(height: 50),
               Text(
                 'Welome back!',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.black,
                   fontSize: 16,
                 ),
               ),
@@ -120,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Text(
                       'Forgot Password?',
-                      style: TextStyle(color: Colors.white70),
+                      style: TextStyle(color: Colors.grey),
                     ),
                   ],
                 ),
@@ -146,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: Text(
                         'Or continue with',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.grey),
                       ),
                     ),
                     Expanded(
@@ -172,12 +174,12 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
               const SizedBox(height: 50),
-               Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     'Not yet a member?',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: AppColors.black),
                   ),
                   const SizedBox(width: 4),
                   GestureDetector(
@@ -190,7 +192,7 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(
                         // fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.accentOrange,
                       ),
                     ),
                   )

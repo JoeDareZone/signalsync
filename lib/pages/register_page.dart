@@ -54,7 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
           title: Center(
             child: Text(
               'User not found...\n\nPlease check your email and password combination!',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: AppColors.white),
             ),
           ),
         );
@@ -71,7 +71,7 @@ class _RegisterPageState extends State<RegisterPage> {
           title: Center(
             child: Text(
               'Incorrect Password',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: AppColors.white),
             ),
           ),
         );
@@ -82,7 +82,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryGreen,
+      backgroundColor: AppColors.white,
       body: SafeArea(
         child: Center(
           child: Column(
@@ -95,9 +95,9 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               const SizedBox(height: 50),
               Text(
-                'Sign Up Here',
+                'Sign Up Here!',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.black,
                   fontSize: 16,
                 ),
               ),
@@ -134,7 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: Text(
                         'Or continue with',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.grey),
                       ),
                     ),
                     Expanded(
@@ -165,7 +165,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   Text(
                     'Already a member?',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: AppColors.black),
                   ),
                   const SizedBox(width: 4),
                   GestureDetector(
@@ -178,7 +178,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       style: TextStyle(
                         // fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.accentOrange,
                       ),
                     ),
                   )

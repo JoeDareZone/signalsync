@@ -33,7 +33,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     'lib/assets/logo.png',
                     height: 160,
                     width: 160,
-                    color: Colors.teal,
+                    color: AppColors.accentTeal,
                   ),
                   const SizedBox(height: 25),
                   Text(
@@ -41,7 +41,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     style: GoogleFonts.poppins(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      color: Colors.teal,
+                      color: AppColors.accentTeal,
                     ),
                   ),
                 ],
