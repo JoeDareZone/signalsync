@@ -50,10 +50,10 @@ class _RegisterPageState extends State<RegisterPage> {
       context: context,
       builder: (context) {
         return const AlertDialog(
-          backgroundColor: AppColors.accentTeal,
+          backgroundColor: AppColors.accentOrange,
           title: Center(
             child: Text(
-              'User not found...\n\nPlease check your email and password combination!',
+              'User not found.\n\nPlease check your email and password combination.',
               style: TextStyle(color: AppColors.white),
             ),
           ),
