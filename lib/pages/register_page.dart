@@ -38,23 +38,25 @@ class _RegisterPageState extends State<RegisterPage> {
       Navigator.pop(context);
       print(e.code);
       if (e.code == 'invalid-email') {
-        wrongEmailMessage();
-      } else if (e.code == 'wrong-password') {
-        wrongPasswordMessage();
-      }
+        failedSignUpMessage('Invalid email format');
+      } else if (e.code == 'weak-password') {
+        failedSignUpMessage('Password must contain at least 6 characters');
+      } else if (e.code == 'email-already-in-use') {
+        failedSignUpMessage('Email already in use');
+      } 
     }
   }
 
-  void wrongEmailMessage() {
+  void failedSignUpMessage(String message) {
     showDialog(
       context: context,
       builder: (context) {
-        return const AlertDialog(
+        return AlertDialog(
           backgroundColor: AppColors.accentOrange,
           title: Center(
             child: Text(
-              'User not found.\n\nPlease check your email and password combination.',
-              style: TextStyle(color: AppColors.white),
+              message,
+              style: TextStyle(color: AppColors.black),
             ),
           ),
         );
@@ -62,22 +64,6 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  void wrongPasswordMessage() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const AlertDialog(
-          backgroundColor: Colors.deepPurple,
-          title: Center(
-            child: Text(
-              'Incorrect Password',
-              style: TextStyle(color: AppColors.white),
-            ),
-          ),
-        );
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
