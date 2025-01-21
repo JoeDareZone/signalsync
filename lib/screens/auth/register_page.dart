@@ -4,6 +4,7 @@ import 'package:signalsync/components/my_button.dart';
 import 'package:signalsync/components/my_textfield.dart';
 import 'package:signalsync/components/square_tile.dart';
 import 'package:signalsync/screens/auth/login_page.dart';
+import 'package:signalsync/screens/home/home_page.dart';
 import 'package:signalsync/services/auth/auth_service.dart';
 import 'package:signalsync/theme/colors.dart';
 
@@ -30,20 +31,28 @@ class _RegisterPageState extends State<RegisterPage> {
 
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
       );
+
       Navigator.pop(context);
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-      print(e.code);
+
       if (e.code == 'invalid-email') {
         failedSignUpMessage('Invalid email format');
       } else if (e.code == 'weak-password') {
         failedSignUpMessage('Password must contain at least 6 characters');
       } else if (e.code == 'email-already-in-use') {
         failedSignUpMessage('Email already in use');
-      } 
+      } else {
+        failedSignUpMessage('An unexpected error occurred. Please try again.');
+      }
     }
   }
 
@@ -63,7 +72,6 @@ class _RegisterPageState extends State<RegisterPage> {
       },
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
