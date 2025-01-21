@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:signalsync/components/my_button.dart';
 import 'package:signalsync/components/my_textfield.dart';
 import 'package:signalsync/components/square_tile.dart';
-import 'package:signalsync/pages/register_page.dart';
-import 'package:signalsync/services/auth_service.dart';
+import 'package:signalsync/screens/auth/register_page.dart';
+import 'package:signalsync/services/auth/auth_service.dart';
 import 'package:signalsync/theme/colors.dart';
 
 class LoginPage extends StatefulWidget {

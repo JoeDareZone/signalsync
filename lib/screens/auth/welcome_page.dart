@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:signalsync/components/my_button.dart';
-import 'package:signalsync/pages/login_page.dart';
-import 'package:signalsync/pages/register_page.dart';
+import 'package:signalsync/screens/auth/login_page.dart';
+import 'package:signalsync/screens/auth/register_page.dart';
 import 'package:signalsync/theme/colors.dart';
 
 class WelcomePage extends StatefulWidget {
