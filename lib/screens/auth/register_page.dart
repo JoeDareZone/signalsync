@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:signalsync/components/my_button.dart';
 import 'package:signalsync/components/my_textfield.dart';
 import 'package:signalsync/components/square_tile.dart';
@@ -9,7 +10,7 @@ import 'package:signalsync/services/auth/auth_service.dart';
 import 'package:signalsync/theme/colors.dart';
 
 class RegisterPage extends StatefulWidget {
-  RegisterPage({super.key});
+  const RegisterPage({super.key});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -43,6 +44,8 @@ class _RegisterPageState extends State<RegisterPage> {
       );
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
+
+      print(e);
 
       if (e.code == 'invalid-email') {
         failedSignUpMessage('Invalid email format');
@@ -82,17 +85,18 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 50),
+              const SizedBox(height: 90),
               const Icon(
                 Icons.lock,
-                size: 100,
+                size: 120,
               ),
               const SizedBox(height: 50),
               Text(
                 'Sign Up Here!',
-                style: TextStyle(
-                  color: AppColors.black,
-                  fontSize: 16,
+                style: GoogleFonts.poppins(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
               const SizedBox(height: 25),

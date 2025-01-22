@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:signalsync/components/my_button.dart';
 import 'package:signalsync/components/my_textfield.dart';
 import 'package:signalsync/components/square_tile.dart';
@@ -8,7 +9,7 @@ import 'package:signalsync/services/auth/auth_service.dart';
 import 'package:signalsync/theme/colors.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -36,6 +37,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
+      print(e);
       if (e.code == 'user-not-found') {
         failedLoginMessage('User Not Found');
       } else if (e.code == 'wrong-password' || e.code == 'invalid-credential') {
@@ -81,10 +83,11 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 50),
               Text(
-                'Welome back!',
-                style: TextStyle(
-                  color: AppColors.black,
-                  fontSize: 16,
+                'Welcome Back!',
+                style: GoogleFonts.poppins(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
               const SizedBox(height: 25),
@@ -100,18 +103,18 @@ class _LoginPageState extends State<LoginPage> {
                 obscureText: true,
               ),
               const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ],
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.end,
+              //     children: [
+              //       Text(
+              //         'Forgot Password?',
+              //         style: TextStyle(color: Colors.grey),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               const SizedBox(height: 25),
               MyButton(
                 buttonType: 'primary',
