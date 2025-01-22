@@ -147,7 +147,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SquareTile(
-                      onTap: () => AuthService().signInWithGoogle(),
+                      onTap: () => AuthService().signInWithGoogle(context),
                       imagePath: 'lib/assets/google.png'),
                   SizedBox(width: 25),
                   SquareTile(
