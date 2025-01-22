@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,11 +11,12 @@ class HomePage extends StatelessWidget {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text(
+        centerTitle: false,
+        title: Text(
           'Home',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 24,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
         ),
@@ -47,21 +49,20 @@ class HomePage extends StatelessWidget {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           'Emil Costa',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
+                          style: GoogleFonts.poppins(
+                            fontSize: 24,
                             color: Colors.black,
                           ),
                         ),
-                        SizedBox(height: 4),
-                        Text(
+                        const SizedBox(height: 4),
+                        const Text(
                           '(646)-777-2000',
                           style: TextStyle(
                             fontSize: 16,
-                            color: Colors.grey,
+                            color: Colors.black45,
                           ),
                         ),
                       ],
@@ -139,11 +140,11 @@ class HomePage extends StatelessWidget {
                     const SizedBox(height: 10),
                     Row(
                       children: [
-                        const Text(
-                          '5.2 GB',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
+                        Text(
+                          '5.2GB',
+                          style: GoogleFonts.poppins(
+                            fontSize: 32,
+                            fontWeight: FontWeight.w600,
                             color: Colors.black,
                           ),
                         ),
