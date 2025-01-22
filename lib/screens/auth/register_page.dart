@@ -45,8 +45,6 @@ class _RegisterPageState extends State<RegisterPage> {
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
 
-      print(e);
-
       if (e.code == 'invalid-email') {
         failedSignUpMessage('Invalid email format');
       } else if (e.code == 'weak-password') {

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:signalsync/screens/auth/auth_page.dart';
 import 'package:signalsync/screens/onboarding/intro_page_1.dart';
 import 'package:signalsync/screens/onboarding/intro_page_2.dart';
 import 'package:signalsync/screens/onboarding/intro_page_3.dart';
-import 'package:signalsync/screens/auth/auth_page.dart';
-import 'package:signalsync/screens/home/home_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreen extends StatefulWidget {

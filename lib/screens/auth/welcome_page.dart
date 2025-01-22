@@ -6,7 +6,7 @@ import 'package:signalsync/screens/auth/register_page.dart';
 import 'package:signalsync/theme/colors.dart';
 
 class WelcomePage extends StatefulWidget {
-  WelcomePage({super.key});
+  const WelcomePage({super.key});
 
   @override
   State<WelcomePage> createState() => _WelcomePageState();

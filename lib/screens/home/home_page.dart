@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  HomePage({super.key});
 
   Future<void> _signOut() async {
     await _auth.signOut();
