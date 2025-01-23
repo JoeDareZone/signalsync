@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
           child: Text(
             'Home',
             style: GoogleFonts.poppins(
-              fontSize: 24,
+              fontSize: 28,
               color: Colors.black,
             ),
           ),
@@ -39,16 +39,15 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // User Card
             AnimatedOpacity(
               opacity: 1.0,
               duration: Duration(seconds: 1),
               child: Container(
                 width: double.infinity,
-                padding: EdgeInsets.all(16),
+                padding: EdgeInsets.all(22),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [AppColors.accentTeal, Colors.lightBlue],
+                    colors: [AppColors.accentTeal, AppColors.primaryGreen],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
@@ -58,12 +57,35 @@ class HomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('John Doe',
-                        style: TextStyle(color: Colors.white, fontSize: 20)),
-                    Text('+1 234 567 890',
+                        style: GoogleFonts.poppins(
+                            fontSize: 24, color: AppColors.white)),
+                    Text('+49 225 664 890',
                         style: TextStyle(color: Colors.white70)),
-                    SizedBox(height: 10),
-                    Text('Telco Provider: Popcorn',
-                        style: TextStyle(color: Colors.white70)),
+                    SizedBox(height: 60),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Image.asset(
+                              'lib/assets/logo.png',
+                              height: 42,
+                              width: 42,
+                              color: AppColors.white,
+                            ),
+                            SizedBox(width: 10),
+                            Text('SignalSync',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 28, color: Colors.white)),
+                          ],
+                        ),
+                        Icon(
+                          Icons.sim_card,
+                          size: 38,
+                          color: AppColors.white,
+                        )
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -81,37 +103,53 @@ class HomePage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.map, color: Colors.blue),
+                      Icon(Icons.map, color: AppColors.grey),
                       SizedBox(width: 10),
-                      Text('Coverage in Brazil'),
+                      Text(
+                        'Coverage',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w500),
+                      ),
                     ],
                   ),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Divider(),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Column(
                         children: [
-                          Icon(Icons.data_usage, color: Colors.green),
+                          Icon(Icons.data_usage, color: AppColors.grey),
                           Text('Data'),
                           Text('Unlimited',
-                              style: TextStyle(color: Colors.green)),
+                              style: TextStyle(
+                                  color: AppColors.primaryGreen,
+                                  fontWeight: FontWeight.bold)),
                         ],
                       ),
                       Column(
                         children: [
-                          Icon(Icons.call, color: Colors.green),
+                          Icon(Icons.call, color: AppColors.grey),
                           Text('Calls'),
                           Text('Unlimited',
-                              style: TextStyle(color: Colors.green)),
+                              style: TextStyle(
+                                  color: AppColors.primaryGreen,
+                                  fontWeight: FontWeight.bold)),
                         ],
                       ),
                       Column(
                         children: [
-                          Icon(Icons.sms, color: Colors.green),
+                          Icon(Icons.sms, color: AppColors.grey),
                           Text('SMS'),
                           Text('Unlimited',
-                              style: TextStyle(color: Colors.green)),
+                              style: TextStyle(
+                                  color: AppColors.primaryGreen,
+                                  fontWeight: FontWeight.bold)),
                         ],
                       ),
                     ],
@@ -131,12 +169,22 @@ class HomePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Monthly Data'),
+                  Row(
+                    children: [
+                      Icon(Icons.bar_chart, color: AppColors.grey),
+                      SizedBox(width: 10),
+                      Text(
+                        'Monthly Data',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
                   SizedBox(height: 10),
                   LinearProgressIndicator(
                     value: 0.5, // 50% data used
                     backgroundColor: Colors.grey[300],
-                    color: Colors.blue,
+                    color: AppColors.accentTeal,
                   ),
                   SizedBox(height: 5),
                   Text('5.2 GB used of 10 GB'),
