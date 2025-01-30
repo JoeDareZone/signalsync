@@ -158,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(width: 25),
                   SquareTile(
-                    onTap: () => print('hi'),
+                    onTap: () => (),
                     imagePath: 'lib/assets/apple.png',
                   ),
                 ],

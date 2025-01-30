@@ -121,7 +121,6 @@ class HomePage extends StatelessWidget {
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Image.asset(
                         'lib/assets/map.png',
@@ -129,19 +128,21 @@ class HomePage extends StatelessWidget {
                         width: 180,
                       ),
                       SizedBox(width: 20),
-                      Wrap(
-                        // spacing: 25,
-                        direction: Axis.vertical,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Brazil 🇧🇷',
                             style: TextStyle(fontSize: 18),
                           ),
+                          SizedBox(height: 5),
                           Row(
+                            mainAxisSize: MainAxisSize.min,
                             children: [
                               Icon(Icons.data_usage, color: AppColors.grey),
+                              SizedBox(width: 5),
                               Text('Data'),
-                              Spacer(),
+                              SizedBox(width: 5),
                               Text('Unlimited',
                                   style: TextStyle(
                                       color: AppColors.primaryGreen,
@@ -149,9 +150,12 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
                           Row(
+                            mainAxisSize: MainAxisSize.min,
                             children: [
                               Icon(Icons.call, color: AppColors.grey),
+                              SizedBox(width: 5),
                               Text('Calls'),
+                              SizedBox(width: 5),
                               Text('Unlimited',
                                   style: TextStyle(
                                       color: AppColors.primaryGreen,
@@ -159,9 +163,12 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
                           Row(
+                            mainAxisSize: MainAxisSize.min,
                             children: [
                               Icon(Icons.sms, color: AppColors.grey),
+                              SizedBox(width: 5),
                               Text('SMS'),
+                              SizedBox(width: 5),
                               Text('Unlimited',
                                   style: TextStyle(
                                       color: AppColors.primaryGreen,

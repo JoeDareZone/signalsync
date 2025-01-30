@@ -12,7 +12,6 @@ class AuthService {
       final GoogleSignInAccount? gUser = await _googleSignIn.signIn();
 
       if (gUser == null) {
-        print('Sign-in canceled by the user.');
         return null;
       }
 
@@ -33,7 +32,7 @@ class AuthService {
         );
       }
     } catch (e) {
-      print('Sign-in error: $e');
+      return null;
     }
   }
 
